@@ -58,9 +58,11 @@ public class MyGdxGame extends ApplicationAdapter {
 		else if (game.checkLosing(game.blueTeam))
 			batch.draw(winRight, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		else {
-			if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)){
+			if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) ||
+			Gdx.input.justTouched()){
 				game.gameTurn();
 				Gdx.graphics.setTitle(String.valueOf("Ход № "+ turnCount++));
+
 			}
 			batch.draw(fon, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 			for (int i = game.UNITS - 1; i >= 0; i--) {
